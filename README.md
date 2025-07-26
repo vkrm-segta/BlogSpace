@@ -1,36 +1,157 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BlogSpace - Modern Blog Platform
 
-## Getting Started
+A modern, responsive blog platform built with Next.js 15, TypeScript, and Tailwind CSS. Features a clean black and white design with dark/light theme support and server-side rendering for optimal performance.
 
-First, run the development server:
+🌐 **Live Demo**: [https://blog-space-one-dun.vercel.app/](https://blog-space-one-dun.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **Modern UI Design**: Clean, responsive interface with glassmorphism effects
+- **Dark/Light Theme**: Toggle between themes with persistent preference
+- **Server-Side Rendering**: Fast loading with Next.js App Router
+- **TypeScript**: Full type safety throughout the application
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **SEO Optimized**: Server-side data fetching for better search engine visibility
+- **Error Handling**: Comprehensive error boundaries and loading states
+- **Caching**: Optimized data fetching with Next.js built-in caching
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **API**: [JSONPlaceholder](https://jsonplaceholder.typicode.com/) (Mock REST API)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd blogspace
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. **Set up environment variables**
+
+   Create a `.env` file in the root directory:
+
+   ```env
+   NEXT_PUBLIC_API_BASE_URL=https://jsonplaceholder.typicode.com
+   ```
+
+4. **Run the development server**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+5. **Open your browser**
+
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+## 📱 Pages
+
+### Homepage (`/`)
+
+- Welcome message with modern hero section
+- Features overview with icons
+- Call-to-action to browse posts
+- **Rendering**: Static Site Generation (SSG)
+
+### Posts Listing (`/posts`)
+
+- Grid layout of blog post cards
+- Author information and post previews
+- Responsive design with loading states
+- **Rendering**: Server-Side Rendering (SSR)
+
+### Post Detail (`/posts/[id]`)
+
+- Full post content with author details
+- Comments section with user avatars
+- Breadcrumb navigation
+- **Rendering**: Dynamic Server-Side Rendering
+
+## 🎨 Design Features
+
+- **Color Scheme**: Elegant black and white palette
+- **Typography**: Inter font for optimal readability
+- **Layout**: CSS Grid and Flexbox for responsive layouts
+- **Animations**: Smooth transitions and hover effects
+- **Icons**: Custom SVG icons throughout the interface
+- **Accessibility**: Proper ARIA labels and semantic HTML
+
+## 🔧 API Integration
+
+The application fetches data from JSONPlaceholder API:
+
+- **Posts**: `/posts` - Blog post content
+- **Users**: `/users` - Author information
+- **Comments**: `/comments?postId={id}` - Post comments
+
+### API Functions (`lib/api.ts`)
+
+```typescript
+fetchPosts(); // Get all posts
+fetchUsers(); // Get all users
+fetchPost(id); // Get single post
+fetchUser(id); // Get single user
+fetchComments(postId); // Get post comments
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌙 Theme System
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application includes a custom theme system with:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Theme Context**: React Context for global theme state
+- **Persistent Storage**: Theme preference saved to localStorage
+- **CSS Variables**: Dynamic theme switching with Tailwind CSS
+- **Theme Toggle**: Animated sun/moon icon in header
 
-## Learn More
+## 📦 Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application is deployed on Vercel. To deploy your own instance:
 
-## Deploy on Vercel
+1. **Push to GitHub**
+2. **Connect to Vercel**
+3. **Set environment variables** in Vercel dashboard
+4. **Deploy automatically** on every push
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_API_BASE_URL=https://jsonplaceholder.typicode.com
+```
