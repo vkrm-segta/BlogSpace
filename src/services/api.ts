@@ -1,14 +1,12 @@
 import { Post, User, Comment } from '@/types';
 
-const API_BASE = 'https://jsonplaceholder.typicode.com';
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-// Generic fetch wrapper with error handling
 const apiRequest = async <T>(endpoint: string): Promise<T> => {
-  const response = await fetch(`${API_BASE}${endpoint}`, {
+  const response = await fetch(`${apiUrl}${endpoint}`, {
     headers: {
       'Content-Type': 'application/json',
     },
-    // Enable caching for better performance
     next: { revalidate: 60 }, // Revalidate every 60 seconds
   });
 
